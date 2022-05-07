@@ -5,5 +5,15 @@ module.exports = {
   defineConstants: {
   },
   mini: {},
-  h5: {}
+  h5: {
+    devServer: {
+      disableHostCheck: true,
+      proxy: {
+        '/api/*': {
+          target: 'http://121.48.165.113:21530', // 后端地址
+          changeOrigin: true,
+        }
+      }
+    }
+  }
 }

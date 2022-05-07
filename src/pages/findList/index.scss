@@ -1,0 +1,52 @@
+.findList {
+  .form {
+    display:  flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 20px;
+    button {
+      padding: 3px 15px;
+    }
+    box-shadow: 2px 3px 3px #DDD;
+  }
+  .list {
+    .unselect {
+      text-align: center;
+      color: #DDD;
+      margin-top: 200px;
+      font-size: 1.1rem;
+    }
+    display: flex;
+    flex-direction: column;
+    .card {
+      border-top: 1px solid #DDD;
+      border-bottom: 1px solid #DDD;
+      padding: 20px;
+      box-shadow: 2px 2px 2px #DDD;
+      .time {
+        color: rgb(97, 143, 143);
+        font-size: 30px;
+      }
+      .desc {
+        padding: 15px 0;
+      }
+      .footer {
+        .hasOcc, .action {
+          margin-left: auto;
+          padding: 2px 5px;
+          border-radius: 8px;
+          border: 1px solid;
+          width: max-content;
+        }
+        .hasOcc {
+          border-color: crimson;
+          color: crimson;
+        }
+        .action {
+          border-color: green;
+          color: green;
+        }
+      }
+    }
+  }
+}

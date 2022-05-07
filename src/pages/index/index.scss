@@ -1,0 +1,19 @@
+
+.index {
+  display: grid;
+  height: 100%;
+  text-align: center;
+  .leisure{
+    background-color: darkgray;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .myAppoint {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

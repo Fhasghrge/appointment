@@ -1,0 +1,63 @@
+.myAppoint {
+  .header {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+  }
+  .list {
+    .card {
+      box-shadow: 1px 2px 2px #DDD;
+      padding: 20px 20px 0;
+      border-top: 1px solid #DDD;
+    }
+    .title {
+      color: rgb(97, 143, 143);
+      font-size: 30px;
+      display: flex;
+      justify-content: space-between;
+      .action-detail {
+        color: rgb(67, 114, 114);
+      }
+    }
+    .main {
+      padding: 25px 0;
+      .status {
+        color: rgb(12, 11, 11);
+        padding: 2px 6px;
+        border: 1px solid;
+        border-radius: 8px;
+        width: max-content;
+      }
+      .diff-1 {
+        border-color: orange;
+        background-color: rgb(248, 172, 32);
+      }
+      .diff-2 {
+        border-color: green;
+        background-color: rgb(42, 238, 42);
+      }
+      .diff-3 {
+        border-color: red;
+        background-color: rgb(231, 75, 75);
+        color: rgb(247, 223, 223);
+      }
+      .verifyRemark {
+        padding-top: 20px;
+      }
+    }
+    .footer {
+      text-align: right;
+    }
+  }
+  .load {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+  }
+  .no-appoint {
+    border-top: 1px solid #DDD;
+    text-align: center;
+    padding-top: 40px;
+  }
+}
