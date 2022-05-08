@@ -9,8 +9,8 @@ import {
   Selector,
 } from 'antd-mobile'
 import T from '@tarojs/taro';
-import { getUrlParams, uploadFile } from '../../util'
-import { searchDetail, putChangeDetail } from '../../apis'
+import { getUrlParams } from '../../util'
+import { searchDetail, putChangeDetail, uploadFile } from '../../apis'
 import { ID2STRING } from '../../constant'
 import './index.scss'
 

@@ -27,7 +27,7 @@ export default function Index(){
     <View className='myAppoint'>
       <View className='header'>我的预约</View>
       {
-        apponitments.length ?
+        apponitments?.length ?
         <View className='list'>
           {
             apponitments.map(item => (
@@ -39,7 +39,7 @@ export default function Index(){
         <View className='no-appoint'>暂无预约</View>
       }
       {
-        apponitments.length >=20 && (
+        apponitments?.length >=20 && (
           <View className='load' onClick={appendAppont}>加载更多</View>
         )
       }
