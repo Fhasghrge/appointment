@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import { DatePicker, Button } from 'antd-mobile'
 import T from '@tarojs/taro'
+import moment from 'moment'
 import { searchCurrentDate } from '../../apis'
 import { ID2STRING } from '../../constant'
 import './index.scss'
@@ -41,7 +42,8 @@ export function BasicDemo({ changeDate }) {
         onClose={() => {
           setVisible(false)
         }}
-        max={now}
+        min={moment().toDate()}
+        max={moment().add(2, 'M').toDate()}
         onConfirm={val => {
           const dateString = formatDate(val);
           setSelectedDate(dateString)

@@ -9,7 +9,7 @@ module.exports = {
     devServer: {
       disableHostCheck: true,
       proxy: {
-        '/api/*': {
+        '/employ/*': {
           target: 'http://121.48.165.113:21530', // 后端地址
           changeOrigin: true,
         }

@@ -1,11 +1,11 @@
 import { Toast } from "antd-mobile"
 
 export const searchMyAppointments = async (page, size) => {
-  return fetch(`/api/reserve/Student/SelfApplies?page=${page}&pageSize=${size}`).then(res => res.json())
+  return fetch(`/employ/api/reserve/Student/SelfApplies?page=${page}&pageSize=${size}`).then(res => res.json())
 }
 
 export const searchCurrentDate = async (date) => {
-  return fetch(`/api/reserve/Student/DailyApplies?date=${date}`).then(res => res.json())
+  return fetch(`/employ/api/reserve/Student/DailyApplies?date=${date}`).then(res => res.json())
   // return {
   //   "data": [
   //     {
@@ -46,7 +46,7 @@ export const uploadFile = async (files) => {
   try {
     const formData = new FormData();
     formData.append('file', files)
-    const fileData = await fetch('/api/reserve/Student/Image/1', {
+    const fileData = await fetch('/employ/api/reserve/Student/Image/1', {
       method: 'POST',
       body: formData
     }).then(res => res.json())
@@ -72,7 +72,7 @@ export const uploadFile = async (files) => {
 }
 
 export const postAppointMent = async (data) => {
-  return fetch('/api/reserve/Student/Apply', {
+  return fetch('/employ/api/reserve/Student/Apply', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -82,11 +82,11 @@ export const postAppointMent = async (data) => {
 }
 
 export const searchDetail = async (id) => {
-  return fetch(`/api/reserve/Student/Apply/${id}`).then(res => res.json())
+  return fetch(`/employ/api/reserve/Student/Apply/${id}`).then(res => res.json())
 }
 
 export const putChangeDetail = async (data) => {
-  return fetch('/api/reserve/Student/Apply', {
+  return fetch('/employ/api/reserve/Student/Apply', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
