@@ -94,3 +94,8 @@ export const putChangeDetail = async (data) => {
     body: JSON.stringify(data)
   }).then(res => res.json())
 }
+export const deleteApp = async (id) => {
+  return fetch('/employ/api/reserve/Student/Apply/' + id, {
+    method: 'DELETE'
+  }).then(res => res.json())
+}

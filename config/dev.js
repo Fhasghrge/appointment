@@ -10,7 +10,7 @@ module.exports = {
       disableHostCheck: true,
       proxy: {
         '/employ/*': {
-          target: 'http://121.48.165.113:21530', // 后端地址
+          target: 'http://meeting.uestc.cn', // 后端地址
           changeOrigin: true,
         }
       }

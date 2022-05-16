@@ -10,7 +10,7 @@ import {
 } from 'antd-mobile'
 import T from '@tarojs/taro';
 import { getUrlParams } from '../../util'
-import { searchDetail, putChangeDetail, uploadFile } from '../../apis'
+import { searchDetail, putChangeDetail, uploadFile, deleteApp as deleteReq } from '../../apis'
 import { ID2STRING } from '../../constant'
 import './index.scss'
 
@@ -28,7 +28,6 @@ export default function Detail() {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log((getUrlParams(window.location.href)));
     setLoading(true)
     searchDetail(getUrlParams(window.location.href).id).then(res => {
       if (res.code === 200) {
@@ -49,14 +48,29 @@ export default function Detail() {
       ...getUrlParams(window.location.href)
     }
     putChangeDetail(postData).then(res => {
-      if(res.code === 200) {
+      if (res.code === 200) {
         Toast.show('修改成功🎉')
         setTimeout(() => {
           T.navigateTo({
             url: 'pages/myAppointment/index'
           })
         }, 2000)
-      }else {
+      } else {
+        Toast.show(res.message || '未知错误')
+      }
+    })
+  }
+
+  const deleteApp = () => {
+    deleteReq(getUrlParams(window.location.href).id).then(res => {
+      if (res.code === 200) {
+        Toast.show('删除成功🎉')
+        setTimeout(() => {
+          T.navigateTo({
+            url: 'pages/myAppointment/index'
+          })
+        }, 2000)
+      } else {
         Toast.show(res.message || '未知错误')
       }
     })
@@ -75,10 +89,24 @@ export default function Detail() {
             location: [String(detail.location)]
           }}
           footer={
-            getUrlParams(window.location.href).reserveStatus !== '2' &&
-            <Button block type='submit' color='primary' size='large'>
-              修改
-            </Button>
+            getUrlParams(window.location.href).reserveStatus !== '2' && (
+              <>
+                <Button block type='submit' color='primary' size='large'>
+                  修改
+                </Button>
+                <Button
+                  block
+                  onClick={deleteApp}
+                  color='danger'
+                  size='large'
+                  style={{
+                    marginTop: '10px'
+                  }}
+                >
+                  删除
+                </Button>
+              </>
+            )
           }
         >
           <Form.Header>申请人信息：</Form.Header>

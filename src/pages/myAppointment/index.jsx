@@ -11,7 +11,6 @@ export default function Index(){
   const [currPage, setCurrPage] = useState(1);
   useEffect(() => {
     searchMyAppointments(1, 20).then(res => {
-      console.log(res);
       setApponitments(res.data?.records)
     })
   }, [])
