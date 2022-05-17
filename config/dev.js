@@ -9,7 +9,7 @@ module.exports = {
     devServer: {
       disableHostCheck: true,
       proxy: {
-        '/employ/*': {
+        '/interviewAppointment/*': {
           target: 'http://meeting.uestc.cn', // 后端地址
           changeOrigin: true,
         }
