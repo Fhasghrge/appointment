@@ -10,7 +10,7 @@ module.exports = {
       disableHostCheck: true,
       proxy: {
         '/interviewAppointment/*': {
-          target: 'http://meeting.uestc.cn', // 后端地址
+          target: 'https://jzsz.uestc.edu.cn/', // 后端地址
           changeOrigin: true,
         }
       }

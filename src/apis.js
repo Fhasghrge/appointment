@@ -99,3 +99,7 @@ export const deleteApp = async (id) => {
     method: 'DELETE'
   }).then(res => res.json())
 }
+
+export const selfinfos = async () => {
+  return fetch('/interviewAppointment/api/reserve/Student/Info/').then(res => res.json())
+}

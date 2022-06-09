@@ -6,12 +6,13 @@ import {
   Button,
   Toast,
   ImageUploader,
-  Selector,
 } from 'antd-mobile'
 import T from '@tarojs/taro';
 import { getUrlParams } from '../../util'
 import { searchDetail, putChangeDetail, uploadFile, deleteApp as deleteReq } from '../../apis'
-import { ID2STRING } from '../../constant'
+import { QIN_ID2STRING, SHA_ID2STRING } from '../../constant'
+import BeforeIcon from '../../img/before.png';
+
 import './index.scss'
 
 
@@ -43,7 +44,6 @@ export default function Detail() {
   const changeDetail = (vals) => {
     const postData = {
       ...vals,
-      location: vals.location[0],
       image: fileList?.[0]?.url || '',
       ...getUrlParams(window.location.href)
     }
@@ -77,12 +77,12 @@ export default function Detail() {
   }
   return (
     <View className='appoint-detail'>
-      <View className='title'>预约详情</View>
       {
         !loading &&
         <Form
           name='form'
           onFinish={changeDetail}
+          layout='horizontal'
           disabled={getUrlParams(window.location.href).reserveStatus === '2'}
           initialValues={{
             ...detail,
@@ -90,59 +90,93 @@ export default function Detail() {
           }}
           footer={
             getUrlParams(window.location.href).reserveStatus !== '2' && (
-              <>
-                <Button block type='submit' color='primary' size='large'>
-                  修改
-                </Button>
+              <View className='actions'>
                 <Button
                   block
                   onClick={deleteApp}
                   color='danger'
                   size='large'
-                  style={{
-                    marginTop: '10px'
-                  }}
                 >
                   删除
                 </Button>
-              </>
+                <Button block type='submit' color='primary' size='large'>
+                  修改
+                </Button>
+              </View>
             )
           }
         >
-          <Form.Header>申请人信息：</Form.Header>
+          <Form.Header>
+            <View className='header'>
+              <img src={BeforeIcon} alt='before' />
+              <View className='text'> 申请人信息：</View>
+            </View>
+          </Form.Header>
           <Form.Item name='name' label='姓名' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
           <Form.Item name='studentId' label='学号' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
           <Form.Item name='phone' label='电话号码' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
           <Form.Item name='college' label='学院' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
           <Form.Item name='major' label='专业' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
-          <Form.Header>预约信息：</Form.Header>
+          <Form.Header>
+            <View className='header'>
+              <img src={BeforeIcon} alt='before' />
+              <View className='text'> 预约信息</View>
+            </View>
+          </Form.Header>
           <Form.Item label='日期' disabled>
             {detail.date}
           </Form.Item>
           <Form.Item label='时段' disabled>
-            {ID2STRING[Number(detail.period) - 1]}
+            {
+              detail.location === 1 ?
+                QIN_ID2STRING[Number(detail.period) - 1]
+                :
+                SHA_ID2STRING[Number(detail.period) - 1]
+            }
           </Form.Item>
-          <Form.Item name='location' label='会议室' rules={[{ required: true }]}>
-            <Selector
-              options={[
-                { label: '活动中心203(清）', value: '1' }
-              ]}
-            />
+          <Form.Item label='会议室' disabled>
+            {
+              detail.location === 1 ?
+                '活动中心203（清）'
+                :
+                '主楼113洽谈室（沙）'
+            }
           </Form.Item>
           <Form.Item name='activity' label='申请理由' rules={[{ required: true }]}>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
-          <Form.Item label='申请材料' rules={[{ required: true }]}>
+          <Form.Item
+            label='申请材料（必填）'
+            layout='vertical'
+          >
             <ImageUploader
               value={fileList}
               onChange={setFileList}
@@ -152,7 +186,10 @@ export default function Detail() {
             />
           </Form.Item>
           <Form.Item name='reserveRemark' label='备注'>
-            <Input />
+            <Input
+              style={{ '--text-align': 'right' }}
+              placeholder='请输入'
+            />
           </Form.Item>
         </Form>
       }

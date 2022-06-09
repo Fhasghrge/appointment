@@ -4,17 +4,37 @@
   height: 100%;
   text-align: center;
   font-size: 40px;
-  .leisure{
-    background-color: darkgray;
-    line-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  .bg {
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: -1;
   }
-  .myAppoint {
-    background-color: aqua;
+  .actions {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    .leisure, .myAppoint {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      margin-top: 55px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      .desc {
+        text-align: left;
+        width: max-content;
+        .eng {
+          color: #EAEAEA;
+          font-size: 40px;
+        }
+        .cn {
+          font-size: 50px;
+        }
+      }
+    }
   }
 }

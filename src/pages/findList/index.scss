@@ -1,50 +1,94 @@
 .findList {
+  background: #F8F9FD;
   .form {
     display:  flex;
     align-items: center;
     font-weight: bold;
-    padding: 20px;
+    padding: 40px 30px;
+    background: white;
     button {
       padding: 3px 15px;
     }
-    box-shadow: 2px 3px 3px #DDD;
+    .selectedDate {
+      color: #4B8AF0;
+      font-size: large;
+    }
   }
   .list {
-    .unselect {
-      text-align: center;
-      color: #DDD;
-      margin-top: 200px;
-      font-size: 1.1rem;
-    }
     display: flex;
     flex-direction: column;
+    align-items: center;
     .card {
-      border-top: 1px solid #DDD;
-      border-bottom: 1px solid #DDD;
-      padding: 20px;
-      box-shadow: 2px 2px 2px #DDD;
-      .time {
-        color: rgb(97, 143, 143);
-        font-size: 30px;
+      padding: 40px 30px;
+      width: 85%;
+      box-shadow: 4px 4px 10px #DDD;
+      background: white;
+      margin-top: 30px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      .location {
+        position: absolute;
+        top: 0; left: 0;
+        font-size: small;
+        border: 1px dotted red;
+        border-radius: 50%;
+        width: 35px; height: 35px;
+        text-align: center;
+        line-height: 35px;
+        transform: rotate(-30deg);
+      }
+      .qin {
+        color: #4977F6;
+        border-color: #7fa1fd;
+      }
+      .sha {
+        color: #F29F59;
+        border-color: #f8c295;
+      }
+      .txt {
+        display: flex;
+        align-items: center;
       }
       .desc {
-        padding: 15px 0;
+        border: 1px solid red;;
+        margin-left: 15px;
+        padding: 1px 14px;
+        padding-left: 12px;
+        border-radius: 25px;
+        font-size: small;
+        border-bottom-left-radius: 0;
       }
-      .footer {
-        .hasOcc, .action {
-          margin-left: auto;
-          padding: 2px 5px;
-          border-radius: 8px;
-          border: 1px solid;
+      .red {
+        background: #FDF3E7;
+        border-color: #F29D53;
+        color: #F29F59;
+      }
+      .green {
+        background: #ECFAFC;
+        border-color: #59E6A6;
+        color: #66E7AC;
+      }
+      .action {
+        position: relative;
+        width: 160px;
+        img {
+          position: absolute;
+          z-index: 1;
+          left: 50%; top: 50%;
+          transform: translate(-50%, -50%);
+          width:160px; height: 60px;
+        }
+        .text {
+          position: absolute;
+          color: white;
+          left: 50%; top: 50%;
+          transform: translate(-50%, -50%);
           width: max-content;
-        }
-        .hasOcc {
-          border-color: crimson;
-          color: crimson;
-        }
-        .action {
-          border-color: green;
-          color: green;
+          z-index: 3;
+          background: transparent;
         }
       }
     }

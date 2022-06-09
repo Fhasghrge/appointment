@@ -1,53 +1,67 @@
 .myAppoint {
-  .header {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px;
-  }
+  background-color: #F8F9FD;
   .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .card {
       box-shadow: 1px 2px 2px #DDD;
-      padding: 20px 20px 0;
-      border-top: 1px solid #DDD;
-    }
-    .title {
-      color: rgb(97, 143, 143);
-      font-size: 30px;
-      display: flex;
-      justify-content: space-between;
-      .action-detail {
-        color: rgb(67, 114, 114);
+      padding: 20px 30px;
+      width: 83%;
+      border-radius: 30px;
+      background-color: white;
+      margin-top: 20px;
+      .verifyRemark {
+        color: #7A7A7A;
       }
     }
     .main {
-      padding: 25px 0;
-      .status {
-        color: rgb(12, 11, 11);
-        padding: 2px 6px;
-        border: 1px solid;
-        border-radius: 8px;
-        width: max-content;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 20px 0;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .location {
+          font-size: 40px;
+        }
       }
-      .diff-1 {
-        border-color: orange;
-        background-color: rgb(248, 172, 32);
+      .time {
+        color: #7A7A7A;
+        margin-top: 20px;
       }
-      .diff-2 {
-        border-color: green;
-        background-color: rgb(42, 238, 42);
-      }
-      .diff-3 {
-        border-color: red;
-        background-color: rgb(231, 75, 75);
-        color: rgb(247, 223, 223);
-      }
-      .verifyRemark {
-        padding-top: 20px;
+      .icon {
+        position: relative;
+        width: 140px;
+        img {
+          position: absolute;
+          z-index: 1;
+          left: 50%; top: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+        }
+        .status {
+          position: absolute;
+          color: white;
+          left: 50%; top: 50%;
+          transform: translate(-50%, -50%);
+          width: max-content;
+          z-index: 3;
+          background: transparent;
+        }
       }
     }
     .footer {
-      text-align: right;
+      border-top: 1px solid #cac9c9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      .apply-time {
+        color: #7A7A7A;
+      }
     }
   }
   .load {
